@@ -1,0 +1,19 @@
+﻿@model  EFDBFirstDemo.Models.Brand
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2> Brand Details</h2>
+
+<table class="table">
+    <tr>
+        <td>@Model.BrandID</td>
+        <td>@Model.BrandName</td>
+    </tr>
+</table>
+<a href="@Url.Action("Index","Brand")" class="btn btn-info">Go Back</a>
+
+
+

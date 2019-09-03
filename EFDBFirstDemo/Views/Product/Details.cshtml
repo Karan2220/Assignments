@@ -1,0 +1,39 @@
+﻿@model EFDBFirstDemo.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Product Details</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ProductID</th>
+            <th>ProductName</th>
+            <th>Price</th>
+            <th>DateOfPurchase</th>
+            <th>AvailabilityStatus</th>
+            <th>Category</th>
+            <th>Brand</th>
+            <th>Active</th>
+        </tr>
+    </thead>
+    <tbody>       
+                <tr>
+                    <td>@Model.ProductID</td>
+                    <td>@Model.ProductName</td>
+                    <td>@Model.Price.Value.ToString("C")</td>
+                    <td>@Model.DateOfPurchase.Value.ToString("yyyy/MM/dd")</td>
+                    <td>@Model.AvailabilityStatus</td>
+                    <td>@Model.Category.CategoryName</td>
+                    <td>@Model.Brand.BrandName</td>
+                    <td>@Model.Active</td>
+                    <td><a href="@Url.Action("Details","Product", new {id = Model.ProductID})">Details</a></td>
+                </tr>    
+    </tbody>
+</table>
+
+<a href="@Url.Action("Index","Product")" class="btn btn-info">Go Back</a>
+

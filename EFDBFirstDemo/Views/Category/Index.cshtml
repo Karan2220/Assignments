@@ -1,0 +1,32 @@
+﻿@model IEnumerable<EFDBFirstDemo.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Category List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>CategoryID</th>
+            <th>CategoryName</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var category in Model)
+            {
+                <tr>
+                    <td>@category.CategoryID</td>
+                    <td>@category.CategoryName</td>
+                    <td><a href="@Url.Action("Details","Category", new {Id = @category.CategoryID})">Details |</a></td>
+                    <td><a href="@Url.Action("Edit", "Category", new {id = @category.CategoryID })">Edit |</a></td>
+                    <td><a href="@Url.Action("Delete","Category", new {Id = @category.CategoryID })" onclick="return confirm('Are you sure?')">Delete</a></td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+

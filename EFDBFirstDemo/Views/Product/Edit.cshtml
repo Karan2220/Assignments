@@ -1,0 +1,57 @@
+﻿@model EFDBFirstDemo.Models.Product
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Edit Product</h2>
+
+<form action="@Url.Action("Update","Product")" method="post">
+    <div class="form-row">
+        <input type="hidden" name="ProductID" value="@Model.ProductID" />
+        <div class="col-md-6">
+            <label for="ProductID">ProductId</label>
+            <input type="text" value="@Model.ProductID" name="ProductID" class="form-control" />
+        </div>
+        <div class="col-md-6">
+            <label for="">ProductName</label>
+            <input type="text" value="@Model.ProductName" name="ProductName" class="form-control" />
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-6">
+            <label for="Price">Price</label>
+            <input type="text" value="@Model.Price" name="Price" class="form-control" />
+        </div>
+        <div class="col-md-6">
+            <label for="DateOfPurchase">DateOfPurchase</label>
+            <input type="date" value="@Model.DateOfPurchase.Value.ToString("yyyy-MM-dd")" name="DateOfPurchase" class="form-control" />
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-6">
+            <label for="AvailabilityStatus">AvailabilityStatus</label>
+            <input type="text" value="@Model.AvailabilityStatus" name="AvailabilityStatus" class="form-control" />
+        </div>
+        <div class="col-md-6">
+            <label for="CategoryID">CategoryID</label>
+            <input type="text" value="@Model.CategoryID" name="CategoryID" class="form-control" />
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-6">
+            <label for="BrandID">BrandID</label>
+            <input type="text" value="@Model.BrandID" name="BrandID" class="form-control" />
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-6">
+            <input type="checkbox" checked="@Model.Active" value="true" name="Active" class="form-check" />
+            <label for="Active">Active</label>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-info">Update</button>
+    <a href="@Url.Action("Index", "Product")" class="btn btn-danger">Cancel</a>
+</form>

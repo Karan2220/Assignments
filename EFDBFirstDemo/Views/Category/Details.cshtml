@@ -1,0 +1,26 @@
+﻿@model EFDBFirstDemo.Models.Category
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Details</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>CategoryID</th>
+            <th>CategoryName</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.CategoryID </td>
+            <td>@Model.CategoryName </td>
+        </tr>
+    </tbody>  
+</table>
+
+<a href="@Url.Action("Index","Category")" class="btn btn-info">Go Back</a>
+

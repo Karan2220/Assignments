@@ -1,0 +1,32 @@
+﻿@model IEnumerable<EFDBFirstDemo.Models.Brand>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Brands List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+           <th>BrandID</th>
+           <th>BrandName</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var brand in Model)
+            {
+                <tr>
+                    <td>@brand.BrandID</td>
+                    <td>@brand.BrandName</td>
+                    <td><a href="@Url.Action("Details", "Brand", new {id = @brand.BrandID})">Details |</a></td>
+                    <td><a href="@Url.Action("Edit","Brand", new {Id = @brand.BrandID})">Edit |</a></td>
+                    <td><a href="@Url.Action("Delete","Brand", new {Id = @brand.BrandID})" onclick="return confirm('Are you sure?')">Delete</a></td>
+                </tr>
+            }
+        }
+    </tbody>   
+</table>
+

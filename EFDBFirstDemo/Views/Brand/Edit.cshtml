@@ -1,0 +1,26 @@
+﻿@model  EFDBFirstDemo.Models.Brand
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Edit Brand</h2>
+<form action="@Url.Action("Create", "Brand")" method="post">
+    <input type="hidden" value="@Model.BrandID" name="BrandID" />
+    <div class="col-md-6">
+        <div>
+            <label for="BrandID">BrandID</label>
+            <input type="text" value="@Model.BrandID" name="BrandID" class="form-control" />
+        </div>      
+    </div>
+    <div class="col-md-6">
+        <div>
+            <label for="BrandName">BrandName</label>
+            <input type="text" value="@Model.BrandName" name="BrandName" class="form-control" />
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success">Update</button>
+    <a href="@Url.Action("Index","Brand")" class="btn btn-danger">Cancel</a>
+</form>
+
